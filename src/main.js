@@ -1,10 +1,15 @@
-import Vue from 'vue'
-import App from './App.vue'
+import Vue from 'vue';
+import App from './App.vue';
 
-import * as mathjs from 'mathjs'
-window.mathjs = mathjs
+import UIkit from 'uikit';
+import UIkitIcons from 'uikit/dist/js/uikit-icons';
+UIkit.use(UIkitIcons);
+window.UIkit = UIkit;
 
-Vue.config.productionTip = false
+import * as mathjs from 'mathjs';
+window.mathjs = mathjs;
+
+Vue.config.productionTip = false;
 
 new Vue({
   render: h => h(App),
