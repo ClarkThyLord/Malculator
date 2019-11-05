@@ -9,6 +9,9 @@ window.UIkit = UIkit;
 import * as mathjs from 'mathjs';
 window.mathjs = mathjs;
 
+import Chart from 'chart.js';
+window.Chart = Chart
+
 Vue.config.productionTip = false;
 
 new Vue({
