@@ -3,6 +3,7 @@ export default {
   function f(x){
     return x * Math.log(x)
   }
+
   trap: function (a, b, n, f) {
     let res = f(a) + f(b)
     let h = (b - a) / n
