@@ -1,21 +1,24 @@
 <template>
-    <!-- <input @model="textA" placeholder="add multiple lines"></input> -->
-    <button @click='btnA'>Enviar A</button>
+    <div>
+        <input v-model="func" placeholder="function here..." />
+        <input v-model="A" placeholder="add multiple lines"/>
+        <button @click="process">Enviar A</button>
+    </div>
 </template>
 
 <script>
 import App from "../App.vue";
-import integral from "../core/integral.js";
 
 export default {
-    data(){
+    data: function (){
         return {
-            textA: ' '
+            func: '',
+            A: ''
         }
     }, 
     methods: {
-        btnA: function(event) {
-            alert('A')
+        process: function () {
+            console.log(window.integral.trap(1, 2, 12, window.mathjs.evaluate(this.func)));
         }
     }
 }

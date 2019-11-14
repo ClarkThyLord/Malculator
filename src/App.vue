@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="../public/icon.svg" />
-    <Input></Input>
+    <Input/>
   </div>
 </template>
 
