@@ -1,17 +1,23 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="../public/icon.svg" />
-    <HelloWorld msg="Hello wolrd" />
+    <Input></Input>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import Input from "./components/Input.vue";
+import integral from "./core/integral.js";
 
 export default {
   name: "app",
   components: {
-    HelloWorld
+    Input
+  },
+  data: function() {
+    return{
+      result: integral.trap(1, 2, 12, function (x) { return x * Math.log(x) })
+    }
   }
 };
 </script>
