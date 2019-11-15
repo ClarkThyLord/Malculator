@@ -1,6 +1,5 @@
 <template>
   <div
-    style="z-index: 10001;"
     class="uk-background-default uk-overlay-default uk-position-cover app-overlay"
     :class="{'uk-invisible': debugging,'uk-animation-fade uk-animation-reverse': AppOverlay, 'uk-invisible': AppOverlayHide}"
   >

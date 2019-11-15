@@ -1,22 +1,26 @@
 <template>
   <div id="app">
     <nav
-      class="uk-position-absolute uk-width-1-1 uk-navbar-container"
-      style="z-index: 10000;"
       uk-navbar
+      style="z-index: 10000;"
+      class="uk-position-absolute uk-width-1-1 uk-navbar-container"
     >
-      <div class="uk-margin-medium uk-navbar-left">
+      <div class="uk-margin-small uk-margin-left uk-navbar-left">
         <Input />
       </div>
 
-      <div class="uk-margin-medium uk-navbar-right"></div>
+      <div class="uk-margin-small uk-margin-right uk-navbar-right">
+        <a href="https://github.com/ClarkThyLord/Malculator" target="_blank">
+          <span uk-icon="icon: github; ratio: 2"></span>
+        </a>
+      </div>
     </nav>
 
     <main class="uk-width-1-1 uk-height-1-1">
       <Graph />
     </main>
 
-    <Overlay />
+    <Overlay style="z-index: 10001;" />
   </div>
 </template>
 
