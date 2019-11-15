@@ -1,8 +1,12 @@
 <template>
     <div>
-        <input v-model="func" placeholder="function here..." />
-        <input v-model="A" placeholder="add multiple lines"/>
-        <button @click="process">Enviar A</button>
+        <form @submit.prevent="process">
+            <input v-model="func" placeholder="function here..." />
+            <input v-model="A" placeholder="add A"/>
+            <input v-model="B" placeholder="add B"/>
+            <input v-model="N" placeholder="add N"/>
+            <button type="submit">Enviar</button>
+        </form>     
     </div>
 </template>
 
@@ -13,12 +17,17 @@ export default {
     data: function (){
         return {
             func: '',
-            A: ''
+            A: '',
+            B: '',
+            N: ''
         }
     }, 
     methods: {
         process: function () {
-            console.log(window.integral.trap(1, 2, 12, window.mathjs.evaluate(this.func)));
+            console.log(window.integral.trap(window.mathjs.evaluate(this.A), window.mathjs.evaluate(this.B), window.mathjs.evaluate(this.N), window.mathjs.evaluate(this.func)));
+            console.log(this.A);
+            console.log(this.B);
+            console.log(this.N);
         }
     }
 }
