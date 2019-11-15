@@ -2,6 +2,7 @@ import Vue from 'vue';
 import App from './App.vue';
 
 import UIkit from 'uikit';
+import 'uikit/dist/css/uikit.min.css';
 import UIkitIcons from 'uikit/dist/js/uikit-icons';
 UIkit.use(UIkitIcons);
 window.UIkit = UIkit;
@@ -17,6 +18,6 @@ window.integral = integral;
 
 Vue.config.productionTip = false;
 
-new Vue({
+window.Vue = new Vue({
     render: h => h(App),
 }).$mount('#app')

@@ -1,7 +1,20 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="../public/icon.svg" />
-    <Input/>
+    <main>
+      <Input />
+    </main>
+    <div
+      class="uk-background-default uk-overlay-default uk-position-cover app-overlay"
+      :class="{'uk-invisible': debugging,'uk-animation-fade uk-animation-reverse': AppOverlay}"
+    >
+      <div class="uk-position-center">
+        <img
+          alt="Malculator"
+          src="../public/icon.svg"
+          :class="{'uk-animation-scale-up uk-animation-reverse': AppOverlayIcon}"
+        />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -15,20 +28,24 @@ export default {
     Input
   },
   data: function() {
-    return{
-      result: integral.trap(1, 2, 12, function (x) { return x * Math.log(x) })
+    return {
+      debugging: true,
+      AppOverlay: false,
+      AppOverlayIcon: false
+    };
+  },
+  mounted: function() {
+    if (debugging) {
+      setTimeout(() => {
+        this.AppOverlayIcon = true;
+        setTimeout(() => {
+          this.AppOverlay = true;
+        }, 200);
+      }, 1500);
     }
   }
 };
 </script>
 
 <style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
