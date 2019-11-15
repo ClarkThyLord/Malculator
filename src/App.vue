@@ -1,8 +1,13 @@
 <template>
   <div id="app">
-    <main>
-      <Input />
-    </main>
+    <div class="uk-height-1-1 uk-flex uk-flex-column">
+      <nav class="uk-navbar-container" uk-navbar>
+        <div class="uk-margin-medium uk-navbar-left">
+          <Input />
+        </div>
+      </nav>
+      <main class="uk-flex-1 uk-background-secondary"></main>
+    </div>
     <div
       class="uk-background-default uk-overlay-default uk-position-cover app-overlay"
       :class="{'uk-invisible': debugging,'uk-animation-fade uk-animation-reverse': AppOverlay}"
@@ -29,13 +34,13 @@ export default {
   },
   data: function() {
     return {
-      debugging: true,
+      debugging: false,
       AppOverlay: false,
       AppOverlayIcon: false
     };
   },
   mounted: function() {
-    if (debugging) {
+    if (!this.debugging) {
       setTimeout(() => {
         this.AppOverlayIcon = true;
         setTimeout(() => {
