@@ -10,7 +10,7 @@
     </div>
     <div
       class="uk-background-default uk-overlay-default uk-position-cover app-overlay"
-      :class="{'uk-invisible': debugging,'uk-animation-fade uk-animation-reverse': AppOverlay}"
+      :class="{'uk-invisible': debugging,'uk-animation-fade uk-animation-reverse': AppOverlay, 'uk-invisible': AppOverlayHide}"
     >
       <div class="uk-position-center">
         <img
@@ -36,7 +36,8 @@ export default {
     return {
       debugging: false,
       AppOverlay: false,
-      AppOverlayIcon: false
+      AppOverlayIcon: false,
+      AppOverlayHide: false
     };
   },
   mounted: function() {
@@ -45,6 +46,9 @@ export default {
         this.AppOverlayIcon = true;
         setTimeout(() => {
           this.AppOverlay = true;
+          setTimeout(() => {
+            this.AppOverlayHide = true;
+          });
         }, 200);
       }, 1500);
     }
