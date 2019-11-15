@@ -1,14 +1,19 @@
 <template>
   <div id="app">
-    <div class="uk-height-1-1 uk-flex uk-flex-column">
-      <nav class="uk-navbar-container" uk-navbar>
-        <div class="uk-margin-medium uk-navbar-left">
-          <Input />
-        </div>
-      </nav>
-      <main class="uk-flex-1 uk-background-secondary"></main>
-    </div>
+    <nav
+      class="uk-width-1-1 uk-navbar-container uk-position-absolute"
+      style="z-index: 10000;"
+      uk-navbar
+    >
+      <div class="uk-margin-medium uk-navbar-left">
+        <Input />
+      </div>
+    </nav>
+    <main class="uk-width-1-1 uk-height-1-1 uk-background-default">
+      <div id="jxgbox" class="jxgbox" style="width:100%; height:100%;"></div>
+    </main>
     <div
+      style="z-index: 10001;"
       class="uk-background-default uk-overlay-default uk-position-cover app-overlay"
       :class="{'uk-invisible': debugging,'uk-animation-fade uk-animation-reverse': AppOverlay, 'uk-invisible': AppOverlayHide}"
     >
@@ -26,6 +31,7 @@
 <script>
 import Input from "./components/Input.vue";
 import integral from "./core/integral.js";
+import JXG from "jsxgraph";
 
 export default {
   name: "app",
@@ -52,6 +58,27 @@ export default {
         }, 300);
       }, 1500);
     }
+
+    var brd = JXG.JSXGraph.initBoard("jxgbox", {
+      pan: {
+        enabled: true,
+        needShift: false
+      },
+      zoom: {
+        wheel: true,
+        needShift: false
+      }
+    });
+    brd.createElement("axis", [[0, 0], [1, 0]], { strokeColor: "red" });
+    brd.createElement("axis", [[0, 0], [0, 1]], {
+      strokeColor: "blue",
+      label: { strokeColor: "white" }
+    });
+    brd.create("functiongraph", [
+      function(x) {
+        return x ** 2;
+      }
+    ]);
   }
 };
 </script>

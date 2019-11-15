@@ -10,8 +10,8 @@ window.UIkit = UIkit;
 import * as mathjs from 'mathjs';
 window.mathjs = mathjs;
 
-import Chart from 'chart.js';
-window.Chart = Chart
+import jsxgraph from 'jsxgraph'
+window.jsxgraph = jsxgraph
 
 import integral from './core/integral.js';
 window.integral = integral;
