@@ -48,8 +48,8 @@ export default {
           this.AppOverlay = true;
           setTimeout(() => {
             this.AppOverlayHide = true;
-          });
-        }, 200);
+          }, 500);
+        }, 300);
       }, 1500);
     }
   }
