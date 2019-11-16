@@ -89,6 +89,8 @@ export default {
         }
         this.func_valid = typeof func == "function" ? true : false;
         this.func_invalid = !this.func_valid;
+      } else {
+        this.func_valid = this.func_invalid = false;
       }
 
       if (this.A != "") {
@@ -100,6 +102,8 @@ export default {
         }
         this.A_valid = typeof A == "number" ? true : false;
         this.A_invalid = !this.A_valid;
+      } else {
+        this.A_valid = this.A_invalid = false;
       }
 
       if (this.B != "") {
@@ -111,6 +115,8 @@ export default {
         }
         this.B_valid = typeof B == "number" ? true : false;
         this.B_invalid = !this.B_valid;
+      } else {
+        this.B_valid = this.B_invalid = false;
       }
 
       if (this.N != "") {
@@ -122,6 +128,8 @@ export default {
         }
         this.N_valid = typeof N == "number" ? true : false;
         this.N_invalid = !this.N_valid;
+      } else {
+        this.N_valid = this.N_invalid = false;
       }
     }
   }
