@@ -1,7 +1,7 @@
 <template>
   <div
     class="uk-background-default uk-overlay-default uk-position-cover app-overlay"
-    :class="{'uk-invisible': debugging,'uk-animation-fade uk-animation-reverse': AppOverlay, 'uk-invisible': AppOverlayHide}"
+    :class="{'uk-animation-fade uk-animation-reverse': AppOverlay, 'uk-invisible': AppOverlayHide}"
   >
     <div class="uk-position-center">
       <img
@@ -24,17 +24,15 @@ export default {
     };
   },
   mounted: function() {
-    if (!this.debugging) {
+    setTimeout(() => {
+      this.AppOverlayIcon = true;
       setTimeout(() => {
-        this.AppOverlayIcon = true;
+        this.AppOverlay = true;
         setTimeout(() => {
-          this.AppOverlay = true;
-          setTimeout(() => {
-            this.AppOverlayHide = true;
-          }, 500);
-        }, 300);
-      }, 1500);
-    }
+          this.AppOverlayHide = true;
+        }, 500);
+      }, 300);
+    }, 1500);
   }
 };
 </script>

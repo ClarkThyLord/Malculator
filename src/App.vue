@@ -3,9 +3,12 @@
     <nav
       uk-navbar
       style="z-index: 10000;"
-      class="uk-position-absolute uk-width-1-1 uk-navbar-container"
+      class="uk-position-absolute uk-width-1-1 uk-navbar-container uk-box-shadow-small"
     >
       <div class="uk-margin-small uk-margin-left uk-navbar-left">
+        <a class="uk-margin-right uk-navbar-item uk-logo">
+          <img src="../public/icon.svg" width="40" uk-svg />
+        </a>
         <Input />
       </div>
 
