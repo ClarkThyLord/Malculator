@@ -1,5 +1,5 @@
 <template>
-  <form class="uk-flex" @submit.prevent="process">
+  <form class="uk-flex">
     <div class="uk-margin-right">
       <label class="uk-form-label" for="form-stacked-text">Function \ Función:</label>
       <div class="uk-form-controls">
