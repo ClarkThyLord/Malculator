@@ -52,9 +52,6 @@
         />
       </div>
     </div>
-    <!-- <div class="uk-margin-auto">
-      <button type="submit" class="uk-button uk-button-default">Calculate</button>
-    </div>-->
   </form>
 </template>
 
@@ -80,8 +77,8 @@ export default {
   },
   methods: {
     check: function() {
+      let func = undefined;
       if (this.func != "") {
-        let func = undefined;
         try {
           func = window.mathjs.evaluate(this.func);
         } catch (e) {
@@ -93,8 +90,8 @@ export default {
         this.func_valid = this.func_invalid = false;
       }
 
+      let A = undefined;
       if (this.A != "") {
-        let A = undefined;
         try {
           A = window.mathjs.evaluate(this.A);
         } catch (e) {
@@ -106,8 +103,8 @@ export default {
         this.A_valid = this.A_invalid = false;
       }
 
+      let B = undefined;
       if (this.B != "") {
-        let B = undefined;
         try {
           B = window.mathjs.evaluate(this.B);
         } catch (e) {
@@ -119,8 +116,8 @@ export default {
         this.B_valid = this.B_invalid = false;
       }
 
+      let N = undefined;
       if (this.N != "") {
-        let N = undefined;
         try {
           N = window.mathjs.evaluate(this.N);
         } catch (e) {
@@ -130,6 +127,11 @@ export default {
         this.N_invalid = !this.N_valid;
       } else {
         this.N_valid = this.N_invalid = false;
+      }
+
+      if (this.func_valid && this.A_valid && this.B_valid && this.N_valid) {
+        console.log("updating!");
+        this.$emit("update", func, A, B, N);
       }
     }
   }

@@ -9,7 +9,7 @@
         <a class="uk-margin-right uk-navbar-item uk-logo">
           <img src="../public/icon.svg" width="40" uk-svg />
         </a>
-        <Input />
+        <Input v-on:update="update" />
       </div>
 
       <div class="uk-margin-small uk-margin-right uk-navbar-right">
@@ -20,7 +20,7 @@
     </nav>
 
     <main class="uk-width-1-1 uk-height-1-1">
-      <Graph />
+      <Graph ref="Graph" />
     </main>
 
     <Overlay style="z-index: 10001;" />
@@ -45,6 +45,18 @@ export default {
     return {
       debugging: false
     };
+  },
+  methods: {
+    update: function(func, A, B, N) {
+      console.log("update");
+      console.log(func);
+      console.log(A);
+      console.log(B);
+      console.log(N);
+      console.log(this.$refs.Graph);
+      console.log(this.$refs.Graph.update_graph);
+      this.$refs.Graph.update_graph(func, A, B, N);
+    }
   }
 };
 </script>
