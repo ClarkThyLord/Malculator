@@ -1,69 +1,43 @@
 <template>
   <nav>
     <div class="uk-margin-small uk-margin-left uk-navbar-left">
-      <a class="uk-margin-right uk-navbar-item uk-logo">
+      <a class="uk-margin-right uk-navbar-item uk-logo uk-visible@m">
         <img src="../../public/icon.svg" width="40" uk-svg />
       </a>
-      <div>
-        <Input title="Function \ Función:" placeholder="Function..." valid_type="function" />
+      <div class="uk-flex">
+        <Input
+          title="Function<span class='uk-invisible'> \ Función: (F)</span>"
+          placeholder="Function..."
+          valid_type="function"
+        >
+          <span slot="title">
+            <span class="uk-hidden@m">Function: (F)</span>
+            <span class="uk-visible@m">Function\ Función: (F)</span>
+          </span>
+        </Input>
+        <Input
+          title="Starting Range \ Rango de Inicio: (A)"
+          placeholder="Starting range..."
+          valid_type="number"
+        >
+          <span slot="title">
+            <span class="uk-hidden@m">Starting Range: (A)</span>
+            <span class="uk-visible@m">Starting Range \ Rango de Inicio: (A)</span>
+          </span>
+        </Input>
+        <Input placeholder="Ending range..." valid_type="function">
+          <span slot="title">
+            <span class="uk-hidden@m">Ending Range: (B)</span>
+            <span class="uk-visible@m">Ending Range \ Rango de Finalización: (B)</span>
+          </span>
+        </Input>
+        <Input placeholder="Iteration count..." valid_type="function">
+          <span slot="title">
+            <span class="uk-hidden@m">Iterations: (N)</span>
+            <span class="uk-visible@m">Iterations \ Iteraciones: (N)</span>
+          </span>
+        </Input>
       </div>
-      <!-- <form class="uk-flex">
-        <div class="uk-margin-right">
-          <label class="uk-form-label" for="form-stacked-text">Function \ Función:</label>
-          <div class="uk-form-controls">
-            <input
-              type="text"
-              v-model="func"
-              placeholder="Function..."
-              class="uk-input"
-              :class="{'uk-form-success': func_valid, 'uk-form-danger': func_invalid}"
-              @input="check"
-            />
-          </div>
-        </div>
-        <div class="uk-margin-right">
-          <label class="uk-form-label" for="form-stacked-text">Starting Range \ Rango de Inicio: (A)</label>
-          <div class="uk-form-controls">
-            <input
-              type="number"
-              v-model="A"
-              placeholder="Starting range..."
-              class="uk-input"
-              :class="{'uk-form-success': A_valid, 'uk-form-danger': A_invalid}"
-              @input="check"
-            />
-          </div>
-        </div>
-        <div class="uk-margin-right">
-          <label
-            class="uk-form-label"
-            for="form-stacked-text"
-          >Ending Range \ Rango de Finalización: (B)</label>
-          <div class="uk-form-controls">
-            <input
-              type="number"
-              v-model="B"
-              placeholder="Ending range..."
-              class="uk-input"
-              :class="{'uk-form-success': B_valid, 'uk-form-danger': B_invalid}"
-              @input="check"
-            />
-          </div>
-        </div>
-        <div class="uk-margin-right">
-          <label class="uk-form-label" for="form-stacked-text">Iterations \ Iteraciones: (N)</label>
-          <div class="uk-form-controls">
-            <input
-              type="number"
-              v-model="N"
-              placeholder="Iteration count..."
-              class="uk-input"
-              :class="{'uk-form-success': N_valid, 'uk-form-danger': N_invalid}"
-              @input="check"
-            />
-          </div>
-        </div>
-      </form>-->
     </div>
 
     <div class="uk-margin-small uk-margin-right uk-navbar-right">

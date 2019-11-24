@@ -1,6 +1,8 @@
 <template>
   <div class="uk-margin-right">
-    <label class="uk-form-label">{{ title }}</label>
+    <label class="uk-form-label">
+      <slot name="title" />
+    </label>
     <div class="uk-form-controls">
       <input
         :type="type"
@@ -26,10 +28,6 @@ export default {
     disabled: {
       type: Boolean,
       default: false
-    },
-    title: {
-      type: String,
-      default: "Title"
     },
     starting_value: {
       default: ""
