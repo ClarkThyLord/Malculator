@@ -1,7 +1,5 @@
 <template>
-  <main class="uk-width-1-1 uk-height-1-1 uk-background-default">
-    <div id="jxgbox" class="jxgbox" style="width:100%; height:100%;"></div>
-  </main>
+  <div id="jxgbox" class="jxgbox"></div>
 </template>
     
 <script>

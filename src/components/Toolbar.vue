@@ -1,0 +1,166 @@
+<template>
+  <nav>
+    <div class="uk-margin-small uk-margin-left uk-navbar-left">
+      <a class="uk-margin-right uk-navbar-item uk-logo">
+        <img src="../../public/icon.svg" width="40" uk-svg />
+      </a>
+      <div>
+        <Input title="Function \ Función:" placeholder="Function..." valid_type="function" />
+      </div>
+      <!-- <form class="uk-flex">
+        <div class="uk-margin-right">
+          <label class="uk-form-label" for="form-stacked-text">Function \ Función:</label>
+          <div class="uk-form-controls">
+            <input
+              type="text"
+              v-model="func"
+              placeholder="Function..."
+              class="uk-input"
+              :class="{'uk-form-success': func_valid, 'uk-form-danger': func_invalid}"
+              @input="check"
+            />
+          </div>
+        </div>
+        <div class="uk-margin-right">
+          <label class="uk-form-label" for="form-stacked-text">Starting Range \ Rango de Inicio: (A)</label>
+          <div class="uk-form-controls">
+            <input
+              type="number"
+              v-model="A"
+              placeholder="Starting range..."
+              class="uk-input"
+              :class="{'uk-form-success': A_valid, 'uk-form-danger': A_invalid}"
+              @input="check"
+            />
+          </div>
+        </div>
+        <div class="uk-margin-right">
+          <label
+            class="uk-form-label"
+            for="form-stacked-text"
+          >Ending Range \ Rango de Finalización: (B)</label>
+          <div class="uk-form-controls">
+            <input
+              type="number"
+              v-model="B"
+              placeholder="Ending range..."
+              class="uk-input"
+              :class="{'uk-form-success': B_valid, 'uk-form-danger': B_invalid}"
+              @input="check"
+            />
+          </div>
+        </div>
+        <div class="uk-margin-right">
+          <label class="uk-form-label" for="form-stacked-text">Iterations \ Iteraciones: (N)</label>
+          <div class="uk-form-controls">
+            <input
+              type="number"
+              v-model="N"
+              placeholder="Iteration count..."
+              class="uk-input"
+              :class="{'uk-form-success': N_valid, 'uk-form-danger': N_invalid}"
+              @input="check"
+            />
+          </div>
+        </div>
+      </form>-->
+    </div>
+
+    <div class="uk-margin-small uk-margin-right uk-navbar-right">
+      <a href="https://github.com/ClarkThyLord/Malculator" target="_blank">
+        <span uk-icon="icon: github; ratio: 2"></span>
+      </a>
+    </div>
+  </nav>
+</template>
+
+<script>
+import Input from "./Input";
+
+export default {
+  name: "Toolbar",
+  components: {
+    Input
+  },
+  data: function() {
+    return {
+      func: "",
+      func_valid: undefined,
+      func_invalid: undefined,
+      A: "",
+      A_valid: undefined,
+      A_invalid: undefined,
+      B: "",
+      B_valid: undefined,
+      B_invalid: undefined,
+      N: "",
+      N_valid: undefined,
+      N_invalid: undefined
+    };
+  },
+  methods: {
+    check: function() {
+      let func = undefined;
+      if (this.func != "") {
+        try {
+          func = window.mathjs.evaluate(this.func);
+        } catch (e) {
+          // console.log(e.message);
+        }
+        this.func_valid = typeof func == "function" ? true : false;
+        this.func_invalid = !this.func_valid;
+      } else {
+        this.func_valid = this.func_invalid = false;
+      }
+
+      let A = undefined;
+      if (this.A != "") {
+        try {
+          A = window.mathjs.evaluate(this.A);
+        } catch (e) {
+          // console.log(e.message);
+        }
+        this.A_valid = typeof A == "number" ? true : false;
+        this.A_invalid = !this.A_valid;
+      } else {
+        this.A_valid = this.A_invalid = false;
+      }
+
+      let B = undefined;
+      if (this.B != "") {
+        try {
+          B = window.mathjs.evaluate(this.B);
+        } catch (e) {
+          // console.log(e.message);
+        }
+        this.B_valid = typeof B == "number" ? true : false;
+        this.B_invalid = !this.B_valid;
+      } else {
+        this.B_valid = this.B_invalid = false;
+      }
+
+      let N = undefined;
+      if (this.N != "") {
+        try {
+          N = window.mathjs.evaluate(this.N);
+        } catch (e) {
+          // console.log(e.message);
+        }
+        this.N_valid = typeof N == "number" ? true : false;
+        this.N_invalid = !this.N_valid;
+      } else {
+        this.N_valid = this.N_invalid = false;
+      }
+
+      if (this.func_valid && this.A_valid && this.B_valid && this.N_valid) {
+        console.log("updating!");
+        this.$emit("update", func, A, B, N);
+      }
+    }
+  }
+};
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+</style>
