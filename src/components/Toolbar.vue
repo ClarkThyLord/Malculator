@@ -1,7 +1,7 @@
 <template>
   <nav>
     <div class="uk-margin-small uk-margin-left uk-navbar-left">
-      <a class="uk-margin-right uk-navbar-item uk-logo uk-visible@m">
+      <a class="uk-margin-right uk-navbar-item uk-logo uk-visible@l">
         <img src="../../public/icon.svg" width="40" uk-svg />
       </a>
       <div class="uk-flex">
@@ -13,8 +13,8 @@
           @updated="updated"
         >
           <span slot="title">
-            <span class="uk-hidden@m">Function: (F)</span>
-            <span class="uk-visible@m">Function\ Función: (F)</span>
+            <span class="uk-hidden@l">Function: (F)</span>
+            <span class="uk-visible@l">Function\ Función: (F)</span>
           </span>
         </Input>
         <Input
@@ -26,8 +26,8 @@
           @updated="updated"
         >
           <span slot="title">
-            <span class="uk-hidden@m">Starting Range: (A)</span>
-            <span class="uk-visible@m">Starting Range \ Rango de Inicio: (A)</span>
+            <span class="uk-hidden@l">Starting Range: (A)</span>
+            <span class="uk-visible@l">Starting Range \ Rango de Inicio: (A)</span>
           </span>
         </Input>
         <Input
@@ -38,8 +38,8 @@
           @updated="updated"
         >
           <span slot="title">
-            <span class="uk-hidden@m">Ending Range: (B)</span>
-            <span class="uk-visible@m">Ending Range \ Rango de Finalización: (B)</span>
+            <span class="uk-hidden@l">Ending Range: (B)</span>
+            <span class="uk-visible@l">Ending Range \ Rango de Finalización: (B)</span>
           </span>
         </Input>
         <Input
@@ -50,8 +50,8 @@
           @updated="updated"
         >
           <span slot="title">
-            <span class="uk-hidden@m">Iterations: (N)</span>
-            <span class="uk-visible@m">Iterations \ Iteraciones: (N)</span>
+            <span class="uk-hidden@l">Iterations: (N)</span>
+            <span class="uk-visible@l">Iterations \ Iteraciones: (N)</span>
           </span>
         </Input>
       </div>
