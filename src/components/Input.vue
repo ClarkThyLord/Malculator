@@ -48,6 +48,7 @@ export default {
   data: function() {
     return {
       value: "",
+      real_value: "",
       valid: false,
       invalid: false
     };
@@ -75,9 +76,12 @@ export default {
         this.valid = typeof value == this.valid_type ? true : false;
         this.invalid = !this.valid;
       } else {
-        this.func_valid = this.invalid = false;
+        this.valid = this.invalid = false;
       }
-      if (this.valid != undefined) this.$emit("updated", value);
+      if (this.valid) {
+        this.real_value = value;
+        this.$emit("updated");
+      }
     }
   }
 };

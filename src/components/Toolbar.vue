@@ -6,9 +6,11 @@
       </a>
       <div class="uk-flex">
         <Input
+          ref="F"
           title="Function<span class='uk-invisible'> \ Función: (F)</span>"
           placeholder="Function..."
           valid_type="function"
+          @updated="updated"
         >
           <span slot="title">
             <span class="uk-hidden@m">Function: (F)</span>
@@ -16,23 +18,37 @@
           </span>
         </Input>
         <Input
+          ref="A"
           title="Starting Range \ Rango de Inicio: (A)"
           placeholder="Starting range..."
           type="number"
           valid_type="number"
+          @updated="updated"
         >
           <span slot="title">
             <span class="uk-hidden@m">Starting Range: (A)</span>
             <span class="uk-visible@m">Starting Range \ Rango de Inicio: (A)</span>
           </span>
         </Input>
-        <Input placeholder="Ending range..." type="number" valid_type="function">
+        <Input
+          ref="B"
+          placeholder="Ending range..."
+          type="number"
+          valid_type="number"
+          @updated="updated"
+        >
           <span slot="title">
             <span class="uk-hidden@m">Ending Range: (B)</span>
             <span class="uk-visible@m">Ending Range \ Rango de Finalización: (B)</span>
           </span>
         </Input>
-        <Input placeholder="Iteration count..." type="number" valid_type="function">
+        <Input
+          ref="N"
+          placeholder="Iteration count..."
+          type="number"
+          valid_type="number"
+          @updated="updated"
+        >
           <span slot="title">
             <span class="uk-hidden@m">Iterations: (N)</span>
             <span class="uk-visible@m">Iterations \ Iteraciones: (N)</span>
@@ -56,6 +72,18 @@ export default {
   name: "Toolbar",
   components: {
     Input
+  },
+  methods: {
+    updated: function() {
+      if (
+        this.$refs.F.valid &&
+        this.$refs.A.valid &&
+        this.$refs.B.valid &&
+        this.$refs.N.valid
+      ) {
+        console.log("updated");
+      }
+    }
   }
 };
 </script>
