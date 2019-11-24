@@ -18,6 +18,7 @@
         <Input
           title="Starting Range \ Rango de Inicio: (A)"
           placeholder="Starting range..."
+          type="number"
           valid_type="number"
         >
           <span slot="title">
@@ -25,13 +26,13 @@
             <span class="uk-visible@m">Starting Range \ Rango de Inicio: (A)</span>
           </span>
         </Input>
-        <Input placeholder="Ending range..." valid_type="function">
+        <Input placeholder="Ending range..." type="number" valid_type="function">
           <span slot="title">
             <span class="uk-hidden@m">Ending Range: (B)</span>
             <span class="uk-visible@m">Ending Range \ Rango de Finalización: (B)</span>
           </span>
         </Input>
-        <Input placeholder="Iteration count..." valid_type="function">
+        <Input placeholder="Iteration count..." type="number" valid_type="function">
           <span slot="title">
             <span class="uk-hidden@m">Iterations: (N)</span>
             <span class="uk-visible@m">Iterations \ Iteraciones: (N)</span>
@@ -55,86 +56,6 @@ export default {
   name: "Toolbar",
   components: {
     Input
-  },
-  data: function() {
-    return {
-      func: "",
-      func_valid: undefined,
-      func_invalid: undefined,
-      A: "",
-      A_valid: undefined,
-      A_invalid: undefined,
-      B: "",
-      B_valid: undefined,
-      B_invalid: undefined,
-      N: "",
-      N_valid: undefined,
-      N_invalid: undefined
-    };
-  },
-  methods: {
-    check: function() {
-      let func = undefined;
-      if (this.func != "") {
-        try {
-          func = window.mathjs.evaluate(this.func);
-        } catch (e) {
-          // console.log(e.message);
-        }
-        this.func_valid = typeof func == "function" ? true : false;
-        this.func_invalid = !this.func_valid;
-      } else {
-        this.func_valid = this.func_invalid = false;
-      }
-
-      let A = undefined;
-      if (this.A != "") {
-        try {
-          A = window.mathjs.evaluate(this.A);
-        } catch (e) {
-          // console.log(e.message);
-        }
-        this.A_valid = typeof A == "number" ? true : false;
-        this.A_invalid = !this.A_valid;
-      } else {
-        this.A_valid = this.A_invalid = false;
-      }
-
-      let B = undefined;
-      if (this.B != "") {
-        try {
-          B = window.mathjs.evaluate(this.B);
-        } catch (e) {
-          // console.log(e.message);
-        }
-        this.B_valid = typeof B == "number" ? true : false;
-        this.B_invalid = !this.B_valid;
-      } else {
-        this.B_valid = this.B_invalid = false;
-      }
-
-      let N = undefined;
-      if (this.N != "") {
-        try {
-          N = window.mathjs.evaluate(this.N);
-        } catch (e) {
-          // console.log(e.message);
-        }
-        this.N_valid = typeof N == "number" ? true : false;
-        this.N_invalid = !this.N_valid;
-      } else {
-        this.N_valid = this.N_invalid = false;
-      }
-
-      if (this.func_valid && this.A_valid && this.B_valid && this.N_valid) {
-        console.log("updating!");
-        this.$emit("update", func, A, B, N);
-      }
-    }
   }
 };
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-</style>
