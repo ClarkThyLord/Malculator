@@ -29,12 +29,16 @@ export default {
     });
   },
   methods: {
-    update_graph: function(func, A, B, N) {
+    update_graph: function(F, A, B, N) {
       if (this.func) this.func.remove();
 
-      this.func = this.board.create("functiongraph", (x, y) => {
-        return func(x);
-      });
+      this.func = this.board.create("functiongraph", [
+        function(x) {
+          return F(x);
+        },
+        A,
+        B
+      ]);
     }
   }
 };
