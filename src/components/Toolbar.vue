@@ -81,7 +81,13 @@ export default {
         this.$refs.B.valid &&
         this.$refs.N.valid
       ) {
-        console.log("updated");
+        this.$emit(
+          "updated",
+          this.$refs.F.real_value,
+          this.$refs.A.real_value,
+          this.$refs.B.real_value,
+          this.$refs.N.real_value
+        );
       }
     }
   }

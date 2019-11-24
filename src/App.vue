@@ -4,6 +4,7 @@
       uk-navbar
       style="z-index: 10000;"
       class="uk-position-absolute uk-width-1-1 uk-navbar-container uk-box-shadow-small"
+      @updated="update"
     />
 
     <main class="uk-width-1-1 uk-height-1-1">
