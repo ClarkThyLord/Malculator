@@ -1,6 +1,6 @@
 export default {
 
-    trap: function(a, b, n, f) {
+    trapezoide: function (a, b, n, f) {
         let res = f(a) + f(b)
         let h = (b - a) / n
         let x = a
@@ -12,7 +12,7 @@ export default {
         return (h / 2) * res
     },
 
-    simpson1: function(a, b, n, f) {
+    simpson_1_3: function (a, b, n, f) {
         let res = f(a) + f(b)
         let h = (b - a) / n
 
@@ -28,7 +28,7 @@ export default {
         return (h / 3) * res
     },
 
-    simpson2: function(a, b, n, f) {
+    simpson_3_8: function (a, b, n, f) {
         let res = f(a) + f(b)
         let h = (b - a) / n
 
