@@ -24,6 +24,7 @@
             placeholder="Starting range..."
             type="number"
             valid_type="number"
+            InputLenght="250px"
             @updated="updated"
           >
             <span slot="title">
@@ -36,6 +37,7 @@
             placeholder="Ending range..."
             type="number"
             valid_type="number"
+            InputLenght="250px"
             @updated="updated"
           >
             <span slot="title">
@@ -48,6 +50,7 @@
             placeholder="Iteration count..."
             type="number"
             valid_type="number"
+            InputLenght="175px"
             @updated="updated"
           >
             <span slot="title">
@@ -57,40 +60,22 @@
           </Input>
         </div>
         <div class="uk-flex uk-margin-auto">
-          <div class="uk-margin-right">
+          <div class="uk-margin-right" :class="{'uk-hidden': invalid_trapezoide}">
             <label class="uk-form-label">Trapezoide:</label>
             <div class="uk-form-controls">
-              <input
-                type="text"
-                disabled="true"
-                v-model="trapezoide"
-                style="max-width: 130px;"
-                class="uk-input"
-              />
+              <input type="text" disabled="true" v-model="trapezoide" class="uk-input short-input" />
             </div>
           </div>
-          <div class="uk-margin-right">
+          <div class="uk-margin-right" :class="{'uk-hidden': invalid_simpson_1_3}">
             <label class="uk-form-label">Simpson 1/3:</label>
             <div class="uk-form-controls">
-              <input
-                type="text"
-                disabled="true"
-                v-model="simpson_1_3"
-                style="max-width: 130px;"
-                class="uk-input"
-              />
+              <input type="text" disabled="true" v-model="simpson_1_3" class="uk-input short-input" />
             </div>
           </div>
-          <div class="uk-margin-right">
+          <div class="uk-margin-right" :class="{'uk-hidden': invalid_simpson_3_8}">
             <label class="uk-form-label">Simpson 3/8:</label>
             <div class="uk-form-controls">
-              <input
-                type="text"
-                disabled="true"
-                v-model="simpson_3_8"
-                style="max-width: 130px;"
-                class="uk-input"
-              />
+              <input type="text" disabled="true" v-model="simpson_3_8" class="uk-input short-input" />
             </div>
           </div>
         </div>
@@ -115,10 +100,21 @@ export default {
   },
   data: function() {
     return {
-      trapezoide: false,
-      simpson_1_3: -1,
-      simpson_3_8: 0
+      trapezoide: undefined,
+      simpson_1_3: undefined,
+      simpson_3_8: undefined
     };
+  },
+  computed: {
+    invalid_trapezoide: function() {
+      return typeof this.trapezoide != "number";
+    },
+    invalid_simpson_1_3: function() {
+      return typeof this.simpson_1_3 != "number";
+    },
+    invalid_simpson_3_8: function() {
+      return typeof this.simpson_3_8 != "number";
+    }
   },
   methods: {
     updated: function() {
@@ -161,3 +157,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.short-input {
+  max-width: 130px;
+}
+</style>

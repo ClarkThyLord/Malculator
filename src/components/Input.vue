@@ -11,6 +11,7 @@
         :placeholder="placeholder"
         @input="update"
         class="uk-input"
+        :style="{'max-width': InputLenght }"
         :class="{'uk-form-success': success, 'uk-form-danger': danger}"
       />
     </div>
@@ -43,6 +44,10 @@ export default {
     empty_invalid: {
       type: Boolean,
       default: false
+    },
+    InputLenght: {
+      type: String,
+      default: "200px"
     }
   },
   data: function() {
